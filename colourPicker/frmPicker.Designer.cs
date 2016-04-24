@@ -34,6 +34,7 @@
             // 
             // pbScreen
             // 
+            this.pbScreen.Cursor = System.Windows.Forms.Cursors.Cross;
             this.pbScreen.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pbScreen.Location = new System.Drawing.Point(0, 0);
             this.pbScreen.Name = "pbScreen";
@@ -42,7 +43,7 @@
             this.pbScreen.TabStop = false;
             this.pbScreen.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pbScreen_MouseDown);
             // 
-            // frmPicker
+            // FrmPicker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -50,7 +51,7 @@
             this.Controls.Add(this.pbScreen);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "frmPicker";
+            this.Name = "FrmPicker";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.Text = "frmPicker";
