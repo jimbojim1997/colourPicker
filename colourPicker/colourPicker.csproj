@@ -52,25 +52,34 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frmMain.cs">
+    <Compile Include="FrmHistory.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmMain.Designer.cs">
-      <DependentUpon>frmMain.cs</DependentUpon>
+    <Compile Include="FrmHistory.Designer.cs">
+      <DependentUpon>FrmHistory.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmPicker.cs">
+    <Compile Include="FrmMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmPicker.Designer.cs">
-      <DependentUpon>frmPicker.cs</DependentUpon>
+    <Compile Include="FrmMain.Designer.cs">
+      <DependentUpon>FrmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmPicker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPicker.Designer.cs">
+      <DependentUpon>FrmPicker.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="frmMain.resx">
-      <DependentUpon>frmMain.cs</DependentUpon>
+    <EmbeddedResource Include="FrmHistory.resx">
+      <DependentUpon>FrmHistory.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmPicker.resx">
-      <DependentUpon>frmPicker.cs</DependentUpon>
+    <EmbeddedResource Include="FrmMain.resx">
+      <DependentUpon>FrmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPicker.resx">
+      <DependentUpon>FrmPicker.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

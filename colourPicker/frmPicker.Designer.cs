@@ -1,6 +1,6 @@
 ﻿namespace colourPicker
 {
-    partial class frmPicker
+    partial class FrmPicker
     {
         /// <summary>
         /// Required designer variable.
@@ -48,6 +48,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 262);
             this.Controls.Add(this.pbScreen);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmPicker";
             this.ShowIcon = false;

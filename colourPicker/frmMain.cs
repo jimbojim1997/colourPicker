@@ -10,18 +10,16 @@ using System.Windows.Forms;
 
 namespace colourPicker
 {
-    public partial class frmMain : Form
+    public partial class FrmMain : Form
     {
-        public frmMain()
+        FrmHistory frmHistory;
+        public FrmMain()
         {
             InitializeComponent();
             Opacity = 0;
+            frmHistory = new FrmHistory();
         }
 
-        
-        
-        
-        
         #region events
         private void frmMain_Load(object sender, EventArgs e)
         {
@@ -52,7 +50,7 @@ namespace colourPicker
                              0,
                              Screen.PrimaryScreen.Bounds.Size,
                              CopyPixelOperation.SourceCopy);
-            frmPicker picker = new frmPicker(screenshot);
+            FrmPicker picker = new FrmPicker(screenshot);
             if (picker.ShowDialog() == DialogResult.OK)
             {
                 Color c = picker.pixelColor;
@@ -63,8 +61,8 @@ namespace colourPicker
 
                 Clipboard.SetText(ColorTranslator.ToHtml(c));
 
-                tbLastRGB.Text = String.Format("{0}, {1}, {2}", c.R.ToString().PadLeft(3), c.G.ToString().PadLeft(3), c.B.ToString().PadLeft(3));
-                tbLastHex.Text = ColorTranslator.ToHtml(c);
+                frmHistory.lastRGB = String.Format("{0}, {1}, {2}", c.R.ToString().PadLeft(3), c.G.ToString().PadLeft(3), c.B.ToString().PadLeft(3));
+                frmHistory.lastHex = ColorTranslator.ToHtml(c);
             }
         }
 
@@ -74,6 +72,11 @@ namespace colourPicker
             t.Enabled = false;
             this.Hide();
             this.Opacity = 1;
+        }
+
+        private void historyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmHistory.Show();
         }
 
         private void optionsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -88,13 +91,15 @@ namespace colourPicker
 
         private void btnCpLastRGB_Click(object sender, EventArgs e)
         {
-            Clipboard.SetText(tbLastRGB.Text);
+            Clipboard.SetText(frmHistory.lastRGB);
         }
 
         private void btnCpLastHex_Click(object sender, EventArgs e)
         {
-            Clipboard.SetText(tbLastHex.Text);
+            Clipboard.SetText(frmHistory.lastHex);
         }
         #endregion
+
+        
     }
 }

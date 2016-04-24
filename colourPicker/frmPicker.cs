@@ -11,7 +11,7 @@ using System.Drawing;
 
 namespace colourPicker
 {
-    public partial class frmPicker : Form
+    public partial class FrmPicker : Form
     {
         private Bitmap screenshot;
         private Graphics g;
@@ -19,7 +19,7 @@ namespace colourPicker
         
 
 
-        public frmPicker(Bitmap screenshot)
+        public FrmPicker(Bitmap screenshot)
         {
             this.screenshot = screenshot;
             InitializeComponent();
