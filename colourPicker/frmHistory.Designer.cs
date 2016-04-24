@@ -45,6 +45,7 @@
             this.btnCpLastHex.TabIndex = 12;
             this.btnCpLastHex.Text = "Copy";
             this.btnCpLastHex.UseVisualStyleBackColor = true;
+            this.btnCpLastHex.Click += new System.EventHandler(this.btnCpLastHex_Click);
             // 
             // btnCpLastRGB
             // 
@@ -54,6 +55,7 @@
             this.btnCpLastRGB.TabIndex = 11;
             this.btnCpLastRGB.Text = "Copy";
             this.btnCpLastRGB.UseVisualStyleBackColor = true;
+            this.btnCpLastRGB.Click += new System.EventHandler(this.btnCpLastRGB_Click);
             // 
             // tbLastHex
             // 

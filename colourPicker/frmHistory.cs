@@ -53,5 +53,15 @@ namespace colourPicker
                 Application.Exit();
             }
         }
+
+        private void btnCpLastRGB_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(lastRGB);
+        }
+
+        private void btnCpLastHex_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(lastHex);
+        }
     }
 }

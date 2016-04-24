@@ -13,6 +13,7 @@ namespace colourPicker
     public partial class FrmMain : Form
     {
         FrmHistory frmHistory;
+
         public FrmMain()
         {
             InitializeComponent();
@@ -50,7 +51,7 @@ namespace colourPicker
                              0,
                              Screen.PrimaryScreen.Bounds.Size,
                              CopyPixelOperation.SourceCopy);
-            FrmPicker picker = new FrmPicker(screenshot);
+            FrmPicker picker = new FrmPicker(screenshot, Color.FromArgb(20, 200, 200, 200));
             if (picker.ShowDialog() == DialogResult.OK)
             {
                 Color c = picker.pixelColor;
@@ -89,17 +90,13 @@ namespace colourPicker
             Application.Exit();
         }
 
-        private void btnCpLastRGB_Click(object sender, EventArgs e)
+        private void btnChangeTintColor_Click(object sender, EventArgs e)
         {
-            Clipboard.SetText(frmHistory.lastRGB);
-        }
-
-        private void btnCpLastHex_Click(object sender, EventArgs e)
-        {
-            Clipboard.SetText(frmHistory.lastHex);
+            if(cdTint.ShowDialog() == DialogResult.OK)
+            {
+                
+            }
         }
         #endregion
-
-        
     }
 }

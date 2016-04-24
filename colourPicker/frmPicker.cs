@@ -7,27 +7,32 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Drawing;
 
 namespace colourPicker
 {
     public partial class FrmPicker : Form
     {
         private Bitmap screenshot;
-        private Graphics g;
+        private Color tintColor;
         public Color pixelColor;
         
 
 
-        public FrmPicker(Bitmap screenshot)
+        public FrmPicker(Bitmap screenshot, Color tintColor)
         {
             this.screenshot = screenshot;
+            this.tintColor = tintColor;
             InitializeComponent();
         }
 
         private void frmPicker_Load(object sender, EventArgs e)
         {
+            Graphics g = Graphics.FromImage(screenshot);
+            g.FillRectangle(new SolidBrush(tintColor), 0, 0, screenshot.Width, screenshot.Height);
+            g.Flush();
+
             pbScreen.Image = screenshot;
+           
         }
 
         private void frmPicker_KeyDown(object sender, KeyEventArgs e)
