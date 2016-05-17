@@ -58,6 +58,7 @@
             this.TopMost = true;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmPicker_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmPicker_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.pbScreen)).EndInit();
             this.ResumeLayout(false);
 

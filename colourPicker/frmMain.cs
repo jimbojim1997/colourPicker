@@ -51,7 +51,7 @@ namespace colourPicker
                              0,
                              Screen.PrimaryScreen.Bounds.Size,
                              CopyPixelOperation.SourceCopy);
-            FrmPicker picker = new FrmPicker(screenshot, Color.FromArgb(20, 200, 200, 200));
+            FrmPicker picker = new FrmPicker(screenshot, Color.FromArgb(70, 200, 200, 200));
             if (picker.ShowDialog() == DialogResult.OK)
             {
                 Color c = picker.pixelColor;

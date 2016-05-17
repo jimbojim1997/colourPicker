@@ -27,16 +27,18 @@ namespace colourPicker
 
         private void frmPicker_Load(object sender, EventArgs e)
         {
-            Graphics g = Graphics.FromImage(screenshot);
+            Bitmap temp = (Bitmap)screenshot.Clone();
+            Graphics g = Graphics.FromImage(temp);
             g.FillRectangle(new SolidBrush(tintColor), 0, 0, screenshot.Width, screenshot.Height);
             g.Flush();
 
-            pbScreen.Image = screenshot;
+            pbScreen.Image = temp;
            
         }
 
         private void frmPicker_KeyDown(object sender, KeyEventArgs e)
         {
+            Console.WriteLine("key: " + e.KeyCode.ToString());
             if(e.KeyCode == Keys.Escape)
             {
                 this.DialogResult = DialogResult.Abort;
