@@ -7,7 +7,7 @@
     <ProjectGuid>{7A7C70D9-B5D9-4744-8484-C66D83EFE323}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>colourPicker</RootNamespace>
+    <RootNamespace>colorPicker</RootNamespace>
     <AssemblyName>colourPicker</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -33,7 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>colourPicker.Program</StartupObject>
+    <StartupObject>colorPicker.Program</StartupObject>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>colourpicker.ico</ApplicationIcon>
@@ -89,6 +89,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

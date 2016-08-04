@@ -1,4 +1,4 @@
-﻿namespace colourPicker
+﻿namespace colorPicker
 {
     partial class FrmHistory
     {

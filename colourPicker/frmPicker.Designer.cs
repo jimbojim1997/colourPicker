@@ -1,4 +1,4 @@
-﻿namespace colourPicker
+﻿namespace colorPicker
 {
     partial class FrmPicker
     {
@@ -54,10 +54,12 @@
             this.Name = "FrmPicker";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "frmPicker";
             this.TopMost = true;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmPicker_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmPicker_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.pbScreen)).EndInit();
             this.ResumeLayout(false);
 

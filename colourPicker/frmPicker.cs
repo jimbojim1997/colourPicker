@@ -8,20 +8,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace colourPicker
+namespace colorPicker
 {
     public partial class FrmPicker : Form
     {
         private Bitmap screenshot;
         private Color tintColor;
-        public Color pixelColor;
-        
+        private Action<Color> closingAction;
 
-
-        public FrmPicker(Bitmap screenshot, Color tintColor)
+        public FrmPicker(Bitmap screenshot, Color tintColor, Action<Color> closingAction)
         {
             this.screenshot = screenshot;
             this.tintColor = tintColor;
+            this.closingAction = closingAction;
             InitializeComponent();
         }
 
@@ -32,24 +31,19 @@ namespace colourPicker
             g.Flush();
 
             pbScreen.Image = screenshot;
-           
         }
 
         private void frmPicker_KeyDown(object sender, KeyEventArgs e)
         {
             if(e.KeyCode == Keys.Escape)
             {
-                this.DialogResult = DialogResult.Abort;
-                this.Close();
+                closingAction(default(Color));
             }
         }
 
         private void pbScreen_MouseDown(object sender, MouseEventArgs e)
         {
-            pixelColor = screenshot.GetPixel(Cursor.Position.X, Cursor.Position.Y);
-
-            this.DialogResult = DialogResult.OK;
-            this.Close();
+            closingAction(screenshot.GetPixel(e.X, e.Y));
         }
     }
 }
