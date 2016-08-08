@@ -36,7 +36,6 @@
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tHide = new System.Windows.Forms.Timer(this.components);
-            this.cdTint = new System.Windows.Forms.ColorDialog();
             this.cmsNotifyIcon.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -85,10 +84,6 @@
             this.tHide.Interval = 1;
             this.tHide.Tick += new System.EventHandler(this.tHide_Tick);
             // 
-            // cdTint
-            // 
-            this.cdTint.Color = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -112,7 +107,6 @@
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.NotifyIcon niPicker;
         private System.Windows.Forms.ToolStripMenuItem historyToolStripMenuItem;
-        private System.Windows.Forms.ColorDialog cdTint;
     }
 }
 

@@ -20,53 +20,43 @@ namespace colorPicker
         public FrmMain()
         {
             InitializeComponent();
-            Opacity = 0;
+            
             frmHistory = new FrmHistory();
             frmPickers = new List<FrmPicker>();
         }
 
         private void ShowPickers()
         {
-            frmPickers.Clear();
             foreach(Screen screen in Screen.AllScreens)
             {
-                Rectangle bounds = screen.Bounds;
-                Bitmap screenshot = new Bitmap(bounds.Width,
-                                               bounds.Height);
-
-                Graphics g = Graphics.FromImage(screenshot);
-                g.CopyFromScreen(bounds.X,
-                                 bounds.Y,
-                                 0,
-                                 0,
-                                 bounds.Size,
-                                 CopyPixelOperation.SourceCopy);
-                FrmPicker picker = new FrmPicker(screenshot, Color.FromArgb(20, 200, 200, 200), PickerAction);
-                picker.SetDesktopLocation(bounds.Left, bounds.Top);
+                FrmPicker picker = new FrmPicker(screen, PickerAction);
                 picker.Show();
                 frmPickers.Add(picker);
             }
         }
 
-        private void PickerAction(Color c)
+        private void PickerAction(Color color)
         {
             foreach(FrmPicker frmPicker in frmPickers)
             {
                 frmPicker.Close();
             }
+            frmPickers.Clear();
 
-            if (c != default(Color))
+            if (color != default(Color))
             {
-                niPicker.BalloonTipTitle = "Pixel color";
-                niPicker.BalloonTipText = String.Format("RGB: {0}, {1}, {2}\nHEX: {3}", c.R.ToString().PadLeft(3), c.G.ToString().PadLeft(3), c.B.ToString().PadLeft(3), ColorTranslator.ToHtml(c));
-                niPicker.ShowBalloonTip(5000);
-
-                Clipboard.SetText(ColorTranslator.ToHtml(c));
-
-                frmHistory.lastRGB = String.Format("{0}, {1}, {2}", c.R.ToString().PadLeft(3), c.G.ToString().PadLeft(3), c.B.ToString().PadLeft(3));
-                frmHistory.lastHex = ColorTranslator.ToHtml(c);
+                ShowBalloonColorText(color);
+                frmHistory.UpdateColor(color);
+                Clipboard.SetText(String.Format("{0}, {1}, {2}", color.R.ToString().PadLeft(3, '0'), color.G.ToString().PadLeft(3, '0'), color.B.ToString().PadLeft(3, '0')));
             }
 
+        }
+
+        private void ShowBalloonColorText(Color color)
+        {
+            niPicker.BalloonTipTitle = "Pixel color";
+            niPicker.BalloonTipText = String.Format("RGB: {0}, {1}, {2}\nHEX: {3}", color.R.ToString().PadLeft(3, '0'), color.G.ToString().PadLeft(3, '0'), color.B.ToString().PadLeft(3, '0'), ColorTranslator.ToHtml(color));
+            niPicker.ShowBalloonTip(8000);
         }
 
         #region events
@@ -114,14 +104,6 @@ namespace colorPicker
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
-        }
-
-        private void btnChangeTintColor_Click(object sender, EventArgs e)
-        {
-            if(cdTint.ShowDialog() == DialogResult.OK)
-            {
-                
-            }
         }
         #endregion
     }

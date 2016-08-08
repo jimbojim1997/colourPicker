@@ -12,25 +12,30 @@ namespace colorPicker
 {
     public partial class FrmPicker : Form
     {
-        private Bitmap screenshot;
-        private Color tintColor;
+        private static Color tint = Color.FromArgb(20, 180, 180, 180);
         private Action<Color> closingAction;
 
-        public FrmPicker(Bitmap screenshot, Color tintColor, Action<Color> closingAction)
+        public FrmPicker(Screen screen, Action<Color> closingAction)
         {
-            this.screenshot = screenshot;
-            this.tintColor = tintColor;
-            this.closingAction = closingAction;
             InitializeComponent();
+
+            this.closingAction = closingAction;
+
+            Rectangle bounds = screen.Bounds;
+            Bitmap screenshot = new Bitmap(bounds.Width, bounds.Height);
+
+            Graphics g = Graphics.FromImage(screenshot);
+            g.CopyFromScreen(bounds.Left, bounds.Top, 0, 0, bounds.Size, CopyPixelOperation.SourceCopy);
+            g.FillRectangle(new SolidBrush(tint), bounds);
+            g.Flush();
+            pbScreen.Image = screenshot;
+
+            this.SetDesktopLocation(bounds.Left, bounds.Top);
         }
 
         private void frmPicker_Load(object sender, EventArgs e)
         {
-            Graphics g = Graphics.FromImage(screenshot);
-            g.FillRectangle(new SolidBrush(tintColor), 0, 0, screenshot.Width, screenshot.Height);
-            g.Flush();
 
-            pbScreen.Image = screenshot;
         }
 
         private void frmPicker_KeyDown(object sender, KeyEventArgs e)
@@ -43,7 +48,8 @@ namespace colorPicker
 
         private void pbScreen_MouseDown(object sender, MouseEventArgs e)
         {
-            closingAction(screenshot.GetPixel(e.X, e.Y));
+            Color pixel = ((Bitmap)pbScreen.Image).GetPixel(e.X, e.Y);
+            closingAction(pixel);
         }
     }
 }

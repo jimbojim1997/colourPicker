@@ -17,28 +17,35 @@ namespace colorPicker
             InitializeComponent();
         }
 
-        public string lastRGB
+        public void UpdateColor(Color color)
         {
-            get
-            {
-                return tbLastRGB.Text;
-            }
-            set
-            {
-                tbLastRGB.Text = value;
-            }
-        }
+            DataGridViewRow row = new DataGridViewRow();
 
-        public string lastHex
-        {
-            get
+            //Index
             {
-                return tbLastHex.Text;
+                DataGridViewTextBoxCell cell = new DataGridViewTextBoxCell();
+                cell.Value = dgvColors.Rows.Count + 1;
+                row.Cells.Add(cell);
             }
-            set
+
+            //RGB
             {
-                tbLastHex.Text = value;
+                DataGridViewTextBoxCell cell = new DataGridViewTextBoxCell();
+                cell.Value = String.Format("{0}, {1}, {2}",
+                                           color.R.ToString().PadLeft(3, '0'),
+                                           color.G.ToString().PadLeft(3, '0'),
+                                           color.B.ToString().PadLeft(3, '0'));
+                row.Cells.Add(cell);
             }
+
+            //HEX
+            {
+                DataGridViewTextBoxCell cell = new DataGridViewTextBoxCell();
+                cell.Value = ColorTranslator.ToHtml(color);
+                row.Cells.Add(cell);
+            }
+
+            dgvColors.Rows.Insert(0, row);
         }
 
         private void FrmHistory_FormClosing(object sender, FormClosingEventArgs e)
@@ -54,14 +61,14 @@ namespace colorPicker
             }
         }
 
-        private void btnCpLastRGB_Click(object sender, EventArgs e)
+        private void dgvColors_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            Clipboard.SetText(lastRGB);
-        }
-
-        private void btnCpLastHex_Click(object sender, EventArgs e)
-        {
-            Clipboard.SetText(lastHex);
+            DataGridView grid = (DataGridView)sender;
+            if (grid.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
+            {
+                DataGridViewCell cell = grid.Rows[e.RowIndex].Cells[e.ColumnIndex];
+                Clipboard.SetText(cell.Value.ToString());
+            }
         }
     }
 }

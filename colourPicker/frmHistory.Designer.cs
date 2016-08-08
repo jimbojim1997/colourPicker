@@ -29,98 +29,94 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmHistory));
-            this.btnCpLastHex = new System.Windows.Forms.Button();
-            this.btnCpLastRGB = new System.Windows.Forms.Button();
-            this.tbLastHex = new System.Windows.Forms.TextBox();
-            this.lblLastHex = new System.Windows.Forms.Label();
-            this.tbLastRGB = new System.Windows.Forms.TextBox();
-            this.lblLastRGB = new System.Windows.Forms.Label();
+            this.dgvColors = new System.Windows.Forms.DataGridView();
+            this.Index = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RGB = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.HEX = new System.Windows.Forms.DataGridViewButtonColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvColors)).BeginInit();
             this.SuspendLayout();
             // 
-            // btnCpLastHex
+            // dgvColors
             // 
-            this.btnCpLastHex.Location = new System.Drawing.Point(132, 31);
-            this.btnCpLastHex.Name = "btnCpLastHex";
-            this.btnCpLastHex.Size = new System.Drawing.Size(61, 21);
-            this.btnCpLastHex.TabIndex = 12;
-            this.btnCpLastHex.Text = "Copy";
-            this.btnCpLastHex.UseVisualStyleBackColor = true;
-            this.btnCpLastHex.Click += new System.EventHandler(this.btnCpLastHex_Click);
+            this.dgvColors.AllowUserToAddRows = false;
+            this.dgvColors.AllowUserToDeleteRows = false;
+            this.dgvColors.AllowUserToResizeColumns = false;
+            this.dgvColors.AllowUserToResizeRows = false;
+            this.dgvColors.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvColors.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Index,
+            this.RGB,
+            this.HEX});
+            this.dgvColors.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvColors.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dgvColors.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.dgvColors.Location = new System.Drawing.Point(0, 0);
+            this.dgvColors.MultiSelect = false;
+            this.dgvColors.Name = "dgvColors";
+            this.dgvColors.ReadOnly = true;
+            this.dgvColors.RowHeadersVisible = false;
+            this.dgvColors.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dgvColors.Size = new System.Drawing.Size(193, 44);
+            this.dgvColors.TabIndex = 0;
+            this.dgvColors.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvColors_CellDoubleClick);
             // 
-            // btnCpLastRGB
+            // Index
             // 
-            this.btnCpLastRGB.Location = new System.Drawing.Point(132, 5);
-            this.btnCpLastRGB.Name = "btnCpLastRGB";
-            this.btnCpLastRGB.Size = new System.Drawing.Size(61, 21);
-            this.btnCpLastRGB.TabIndex = 11;
-            this.btnCpLastRGB.Text = "Copy";
-            this.btnCpLastRGB.UseVisualStyleBackColor = true;
-            this.btnCpLastRGB.Click += new System.EventHandler(this.btnCpLastRGB_Click);
+            this.Index.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Index.HeaderText = "";
+            this.Index.Name = "Index";
+            this.Index.ReadOnly = true;
+            this.Index.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Index.Width = 30;
             // 
-            // tbLastHex
+            // RGB
             // 
-            this.tbLastHex.Location = new System.Drawing.Point(48, 32);
-            this.tbLastHex.Name = "tbLastHex";
-            this.tbLastHex.ReadOnly = true;
-            this.tbLastHex.Size = new System.Drawing.Size(78, 20);
-            this.tbLastHex.TabIndex = 10;
-            this.tbLastHex.Text = "#000000";
+            this.RGB.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.RGB.FillWeight = 104.1916F;
+            this.RGB.HeaderText = "RGB";
+            this.RGB.Name = "RGB";
+            this.RGB.ReadOnly = true;
+            this.RGB.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.RGB.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.RGB.Width = 80;
             // 
-            // lblLastHex
+            // HEX
             // 
-            this.lblLastHex.AutoSize = true;
-            this.lblLastHex.Location = new System.Drawing.Point(12, 35);
-            this.lblLastHex.Name = "lblLastHex";
-            this.lblLastHex.Size = new System.Drawing.Size(29, 13);
-            this.lblLastHex.TabIndex = 9;
-            this.lblLastHex.Text = "HEX";
-            // 
-            // tbLastRGB
-            // 
-            this.tbLastRGB.Location = new System.Drawing.Point(48, 6);
-            this.tbLastRGB.Name = "tbLastRGB";
-            this.tbLastRGB.ReadOnly = true;
-            this.tbLastRGB.Size = new System.Drawing.Size(78, 20);
-            this.tbLastRGB.TabIndex = 8;
-            this.tbLastRGB.Text = "000, 000, 000";
-            // 
-            // lblLastRGB
-            // 
-            this.lblLastRGB.AutoSize = true;
-            this.lblLastRGB.Location = new System.Drawing.Point(12, 9);
-            this.lblLastRGB.Name = "lblLastRGB";
-            this.lblLastRGB.Size = new System.Drawing.Size(30, 13);
-            this.lblLastRGB.TabIndex = 7;
-            this.lblLastRGB.Text = "RGB";
+            this.HEX.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.HEX.FillWeight = 95.80838F;
+            this.HEX.HeaderText = "HEX";
+            this.HEX.Name = "HEX";
+            this.HEX.ReadOnly = true;
+            this.HEX.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.HEX.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.HEX.Width = 80;
             // 
             // FrmHistory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(207, 60);
-            this.Controls.Add(this.btnCpLastHex);
-            this.Controls.Add(this.btnCpLastRGB);
-            this.Controls.Add(this.tbLastHex);
-            this.Controls.Add(this.lblLastHex);
-            this.Controls.Add(this.tbLastRGB);
-            this.Controls.Add(this.lblLastRGB);
+            this.ClientSize = new System.Drawing.Size(193, 44);
+            this.Controls.Add(this.dgvColors);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(209, 10000);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(209, 38);
             this.Name = "FrmHistory";
-            this.Text = "Colour History";
+            this.ShowInTaskbar = false;
+            this.Text = "History";
             this.TopMost = true;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmHistory_FormClosing);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvColors)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button btnCpLastHex;
-        private System.Windows.Forms.Button btnCpLastRGB;
-        private System.Windows.Forms.TextBox tbLastHex;
-        private System.Windows.Forms.Label lblLastHex;
-        private System.Windows.Forms.TextBox tbLastRGB;
-        private System.Windows.Forms.Label lblLastRGB;
+        private System.Windows.Forms.DataGridView dgvColors;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Index;
+        private System.Windows.Forms.DataGridViewButtonColumn RGB;
+        private System.Windows.Forms.DataGridViewButtonColumn HEX;
     }
 }
