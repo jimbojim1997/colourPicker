@@ -25,6 +25,19 @@ namespace colorPicker
             {
                 DataGridViewTextBoxCell cell = new DataGridViewTextBoxCell();
                 cell.Value = dgvColors.Rows.Count + 1;
+                cell.Style.BackColor = color;
+                cell.Style.SelectionBackColor = color;
+
+                if (color.GetBrightness() >= 0.5f)
+                {
+                    cell.Style.ForeColor = Color.Black;
+                }
+                else
+                {
+                    cell.Style.ForeColor = Color.White;
+                }
+
+
                 row.Cells.Add(cell);
             }
 
