@@ -47,7 +47,7 @@ namespace colorPicker
             {
                 ShowBalloonColorText(color);
                 frmHistory.UpdateColor(color);
-                Clipboard.SetText(String.Format("{0}, {1}, {2}", color.R.ToString().PadLeft(3, '0'), color.G.ToString().PadLeft(3, '0'), color.B.ToString().PadLeft(3, '0')));
+                Clipboard.SetText(ColorTranslator.ToHtml(color));
             }
 
         }
