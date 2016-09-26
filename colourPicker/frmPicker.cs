@@ -12,7 +12,6 @@ namespace colorPicker
 {
     public partial class FrmPicker : Form
     {
-        private static Color tint = Color.FromArgb(20, 180, 180, 180);
         private Action<Color> closingAction;
 
         public FrmPicker(Screen screen, Action<Color> closingAction)
@@ -26,7 +25,6 @@ namespace colorPicker
 
             Graphics g = Graphics.FromImage(screenshot);
             g.CopyFromScreen(bounds.Left, bounds.Top, 0, 0, bounds.Size, CopyPixelOperation.SourceCopy);
-            g.FillRectangle(new SolidBrush(tint), bounds);
             g.Flush();
             pbScreen.Image = screenshot;
 
