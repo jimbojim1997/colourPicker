@@ -83,6 +83,11 @@ namespace colorPicker
             ShowPickers();
         }
 
+        private void niPicker_BalloonTipClicked(object sender, EventArgs e)
+        {
+            frmHistory.Show();
+        }
+
         private void tHide_Tick(object sender, EventArgs e)
         {
             System.Windows.Forms.Timer t = (System.Windows.Forms.Timer)sender;

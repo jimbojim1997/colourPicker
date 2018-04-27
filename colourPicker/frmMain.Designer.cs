@@ -46,6 +46,7 @@
             this.niPicker.Icon = ((System.Drawing.Icon)(resources.GetObject("niPicker.Icon")));
             this.niPicker.Text = "Colour Picker";
             this.niPicker.Visible = true;
+            this.niPicker.BalloonTipClicked += new System.EventHandler(this.niPicker_BalloonTipClicked);
             this.niPicker.DoubleClick += new System.EventHandler(this.niPicker_DoubleClick);
             // 
             // cmsNotifyIcon
